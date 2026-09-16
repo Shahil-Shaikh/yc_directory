@@ -75,9 +75,11 @@ export default async function Hero({ searchParams }) {
   //     category: "Fintech",
   //   },
   // ];
-  const startups = await fetch("http://localhost:3000/api")
-  //code from here
-  console.log("STARTUPS: ", startups);
+  const startupsTemp = await fetch("http://localhost:3000/api"); //it returns data of type Response, which is a readable stream, so we need to convert it to json format to use it in our code
+  let startups = await startupsTemp.json(); //this line convertes the response to object of type json, which we can use in our code.So this is an object
+ startups=startups.data;
+  console.log("Type : ", typeof startups);
+  // console.log("Value : ", typeof startups.data);
   return (
     <>
       <section className="bg-[#FFFDF6] px-6 py-10 ">
@@ -150,11 +152,11 @@ export default async function Hero({ searchParams }) {
           <p className="mb-6 text-[#14110F]/60">All startups</p>
         )}
 
-        {/* <div className="card_container flex flex-wrap gap-6">
+        <div className="card_container flex flex-wrap gap-6">
           {startups.map((startup) => (
             <StartupCard key={startup.id} {...startup} />
           ))}
-        </div> */}
+        </div>
       </section>
 
     </>
