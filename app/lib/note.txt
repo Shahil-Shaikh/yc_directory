@@ -1,0 +1,7 @@
+What is lib/ for?
+    Nothing framework-special. In the Next.js App Router, only the app/ folder is scanned for routing (page.js, route.js, layout.js, etc). lib/ is just a convention — a folder for shared utility/setup code (DB clients, helper functions, API wrappers) that isn't a route or a component. You could name it utils/, server/, whatever — Next.js doesn't care.
+
+SEE the FullConcept.md
+
+
+
